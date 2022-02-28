@@ -17,7 +17,7 @@ export const calculateProducts = (invoices) =>{
     for(let i=0; i<getProducts.length;i++){
         const values = getProducts[i].map(invoice => {
         let products = {}
-            let nameProduct = invoice.reference
+            let nameProduct = invoice.description
             products[nameProduct] = !products[nameProduct] ? (parseInt(invoice.price) * parseInt(invoice.quantity)) :products[nameProduct] +=(parseInt(invoice.price) * parseInt(invoice.quantity))
             return products
         })

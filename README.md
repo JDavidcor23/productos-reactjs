@@ -1,70 +1,37 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Como ejecuto el programa
+- necesitas json server(global) para poder consumir la endpoint
+- el documento data.json necesitas ponerle un nombre al json
+[![json](https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646031863/dsehwsvqcd0qf0b1vpjy.png "json")](https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646031863/dsehwsvqcd0qf0b1vpjy.png "json")
+- luego abre una línea de comandos en donde esta la data
+- escribe **json-server --watch data.json --port 3004** ,luego enter
+- despues abre el proyecto de react y le das npm run start
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## El ejercicio número 1 se le pide:
+Con base al archivo “data.json” proporcionado que hace referencia a una base de datos de
+facturas realizar:
+1. Calcular valor total de las ventas (por fechas, tienda, producto, cliente)
+2. Calcular cantidad de facturas generadas (por fechas, tienda, producto, cliente)
+3. Calcular promedio de venta (por fechas, tienda, producto, cliente)
+4. Eliminar una factura del listado
+5. Eliminar un producto a una factura y actualizar su objeto summary
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Respuesta:
+Primero use el Hook useEffect para hacer la petición fetch y añadirlo a la variable invoices.
+Segundo cree unas funciones:
+En la carpeta FunctionsOne, FunctionsTwo, FunctionsTree están las funciones para calcular los ingresos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### calculateCustumers: 
+Recibe las facturas, creo un objeto vacío llamado customers, hago una iteración del parámetro, creó una variable llamada name, para obtener el nombre de los clientes, después hago una operación ternaria y le asignó al objeto customers la llave del nombre y preguntó si la llave ya existe lo sumo con su valor de total a pagar, si no se le asigna el primer valor de total a pagar. Después de esa iteración hago otra para que me regrese un Array y lo pueda recorrer después.
 
-### `npm test`
+### calculateProducts: 
+recibe las facturas, hago un mapeo para obtener los productos, hago una iteración de ese mapeo y logró acceder a todos los productos y hago lo mismo que en  calculateCustumers declaro un objeto, hago una operación ternaria y saco los resultados. pero este me entrega los objetos separados haci que hago otra iteración del array, este no me logra acceder a los valores haci que hago otra iteración para poder acceder a estos, vuelvo a hacer la misma comparación y ya me entrega el objeto que necesito y lo paso a un Array.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Otras funciones: 
+Estas funciones hacen lo mismo que la primera y la segunda(para las funciones de products) con sus respectivas peticiones.
+En el App.js hay otras funciones:
+deleteInvoice:esta como su nombre lo dice borra la factura deseada, se hace un método filter para que me retorne todo lo que no sea igual al id que le pace en el parámetro.
+getProduct: me trae todos los productos de la iteración de todas las facturas.
+getinvoice le agrega e parametro invoices a la función deseada

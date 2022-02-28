@@ -58,7 +58,7 @@ export const averageProducts = (invoices) =>{
     for(let i=0; i<getProducts.length;i++){
         const values = getProducts[i].map(invoice => {
         let pro = {}
-            let nameProduct = invoice.reference
+            let nameProduct = invoice.description
             pro[nameProduct] = !pro[nameProduct] ? ((parseInt(invoice.price) * parseInt(invoice.quantity) / invoice.quantity)) :pro[nameProduct] +=((parseInt(invoice.price) * parseInt(invoice.quantity) / invoice.quantity)) 
             return pro
         })

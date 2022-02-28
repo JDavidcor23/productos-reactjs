@@ -16,7 +16,7 @@ function App() {
   const getProduct = (invoice)=>{
       let product ={}
       invoice.products.forEach(p => {
-        let nameProduct = p.reference
+        let nameProduct = p.description
          product[nameProduct] = !product[nameProduct] ? (p.price*p.quantity) :product[nameProduct] +=(p.price*p.quantity)
 
         });
@@ -46,10 +46,10 @@ function App() {
           <button onClick={()=>getinvoice(calculateCustumers)} className="buttons_actions">Por Clientes</button>
           <button onClick={()=>getinvoice(calculateDates)} className="buttons_actions">Por Fechas</button>
           <button onClick={()=>getinvoice(calculateShops)} className="buttons_actions">Por Tiendas</button>
-          <button onClick={()=>getinvoice(calculateProducts)} className="buttons_actions">PRODUCTOS</button>
+          <button onClick={()=>getinvoice(calculateProducts)} className="buttons_actions">Por Productos</button>
         </div>
         <div>
-          <h2>Calcular cantidad de invoices</h2>
+          <h2>Calcular cantidad de Facturas</h2>
           <button onClick={()=>getinvoice(invoicesCustumers)} className="buttons_actions">Por Clientes</button>
           <button onClick={()=>getinvoice(invoicesDates)} className="buttons_actions">Por Fechas</button>
           <button onClick={()=>getinvoice(invoicesShops)} className="buttons_actions">Por Tiendas</button>
