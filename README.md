@@ -5,7 +5,8 @@
 [![json](https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646031863/dsehwsvqcd0qf0b1vpjy.png "json")](https://res.cloudinary.com/dhu6ga6hl/image/upload/v1646031863/dsehwsvqcd0qf0b1vpjy.png "json")
 - luego abre una línea de comandos en donde esta la data
 - escribe **json-server --watch data.json --port 3004** ,luego enter
-- despues abre el proyecto de react y le das npm run start
+- clonas el proyecto,
+- Abres una terminal y escribes npm run start
 
 
 
@@ -18,7 +19,7 @@ facturas realizar:
 4. Eliminar una factura del listado
 5. Eliminar un producto a una factura y actualizar su objeto summary
 
-## Respuesta:
+## Funcionamiento:
 Primero use el Hook useEffect para hacer la petición fetch y añadirlo a la variable invoices.
 Segundo cree unas funciones:
 En la carpeta FunctionsOne, FunctionsTwo, FunctionsTree están las funciones para calcular los ingresos
